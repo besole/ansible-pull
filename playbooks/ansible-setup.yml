@@ -3,12 +3,12 @@
   tasks:
     - name: Install ansible galaxy collections
       community.general.ansible_galaxy_install:
-        path: "{{ playbook_dir }}/../collections/"
+        dest: "{{ playbook_dir }}/../collections/"
         requirements_file: "{{ playbook_dir }}/../collections/requirements.yml"
         type: collection
 
     - name: Install ansible galaxy roles
       community.general.ansible_galaxy_install:
-        path: "{{ playbook_dir }}/../roles/"
+        dest: "{{ playbook_dir }}/../roles/"
         requirements_file: "{{ playbook_dir }}/../roles/requirements.yml"
         type: role
