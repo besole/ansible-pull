@@ -39,3 +39,9 @@
     - name: Initialize dotfiles
       ansible.builtin.shell:
         cmd: "{{ user_creation.home }}/userbuild/git/dotfiles/init.sh"
+
+- name: Expire user password
+  become: true
+  ansible.builtin.user:
+    name: besole
+    expires: true

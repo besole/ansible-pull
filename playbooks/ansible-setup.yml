@@ -1,0 +1,10 @@
+- name: Set up ansible requirements
+  hosts: all
+  tasks:
+    - name: Install ansible galaxy collections
+      ansible.builtin.shell:
+        cmd: ansible-galaxy collection install -r collections/requirements.yml --force
+
+    - name: Install ansible galaxy roles
+      ansible.builtin.shell:
+        cmd: ansible-galaxy role install -r roles/requirements.yml --force
