@@ -4,11 +4,9 @@
     - name: Install ansible galaxy collections
       community.general.ansible_galaxy_install:
         requirements_file: collections/requirements.yml
-        state: present
         type: collection
 
     - name: Install ansible galaxy roles
       community.general.ansible_galaxy_install:
         requirements_file: roles/requirements.yml
-        state: present
         type: role
