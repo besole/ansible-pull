@@ -8,5 +8,5 @@
 
     - name: Install ansible galaxy roles
       community.general.ansible_galaxy_install:
-        requirements_file: "{{ playbook_dir }}/../roles/requirements.yml
+        requirements_file: "{{ playbook_dir }}/../roles/requirements.yml"
         type: role
