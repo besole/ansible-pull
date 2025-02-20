@@ -1,0 +1,4 @@
+- name: Set up user environment
+  hosts: all
+  roles:
+    - besole.user.zsh
