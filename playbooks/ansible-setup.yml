@@ -2,9 +2,13 @@
   hosts: all
   tasks:
     - name: Install ansible galaxy collections
-      ansible.builtin.shell:
-        cmd: ansible-galaxy collection install -r {{ playbook_dir }}/../collections/requirements.yml -p {{ playbook_dir }}/../collections --force
+      community.general.ansible_galaxy_install:
+        requirements_file: collections/requirements.yml
+        state: present
+        type: collection
 
     - name: Install ansible galaxy roles
-      ansible.builtin.shell:
-        cmd: ansible-galaxy role install -r {{ playbook_dir }}/../roles/requirements.yml -p {{ playbook_dir }}/../roles --force
+      community.general.ansible_galaxy_install:
+        requirements_file: roles/requirements.yml
+        state: present
+        type: role
