@@ -1,2 +1,0 @@
-- ansible.builtin.import_playbook: playbooks/ansible-setup.yml
-- ansible.builtin.import_playbook: playbooks/user.yml
