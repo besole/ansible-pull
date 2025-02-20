@@ -3,8 +3,8 @@
   tasks:
     - name: Install ansible galaxy collections
       ansible.builtin.shell:
-        cmd: ansible-galaxy collection install -r {{ playbook_dir }}/collections/requirements.yml -p {{ playbook_dir }}/collections --force
+        cmd: ansible-galaxy collection install -r {{ playbook_dir }}/../collections/requirements.yml -p {{ playbook_dir }}/../collections --force
 
     - name: Install ansible galaxy roles
       ansible.builtin.shell:
-        cmd: ansible-galaxy role install -r {{ playbook_dir }}/roles/requirements.yml -p {{ playbook_dir}}/roles --force
+        cmd: ansible-galaxy role install -r {{ playbook_dir }}/../roles/requirements.yml -p {{ playbook_dir }}/../roles --force
