@@ -45,3 +45,14 @@
   ansible.builtin.user:
     name: besole
     expires: true
+
+- name: Copy ssh keys
+  become: true
+  ansible.posix.authorized_key:
+    exclusive: true
+    state: present
+    user: besole
+    key: |
+      {% for key in lookup('ansible.builtin.fileglob', 'ssh-keys/*', wantlist=true )}
+      {{ lookup('ansible.builtin.file', keyfile) }}
+      {% endfor %}
