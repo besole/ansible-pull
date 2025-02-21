@@ -20,7 +20,6 @@
     state: present
     name: besole
     shell: /bin/zsh
-#    password: '$6$XA/dV4wYoDCnW5jX$TVC3n7i8KB19KsYNrbtn1LBxUVGYvU.p6UEM0fCEpZUDYetq9/sGfXnPSLbnphy63X8QT65AmkNZFy2QAABu9/'
     password_lock: true
     generate_ssh_key: true
     ssh_key_type: ecdsa
@@ -51,3 +50,9 @@
       {% for keyfile in lookup('ansible.builtin.fileglob', 'ssh-pubkeys/*', wantlist=true) %}
       {{ lookup('ansible.builtin.file', keyfile) }}
       {% endfor %}
+
+- name: Allow sudo access
+  become: true
+  ansible.builtin.copy:
+    dest: /etc/sudoers.d/besole
+    content: besole ALL=(ALL) NOPASSWD:ALL
