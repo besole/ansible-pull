@@ -20,7 +20,8 @@
     state: present
     name: besole
     shell: /bin/zsh
-    password: '$6$XA/dV4wYoDCnW5jX$TVC3n7i8KB19KsYNrbtn1LBxUVGYvU.p6UEM0fCEpZUDYetq9/sGfXnPSLbnphy63X8QT65AmkNZFy2QAABu9/'
+#    password: '$6$XA/dV4wYoDCnW5jX$TVC3n7i8KB19KsYNrbtn1LBxUVGYvU.p6UEM0fCEpZUDYetq9/sGfXnPSLbnphy63X8QT65AmkNZFy2QAABu9/'
+    password_lock: true
     generate_ssh_key: true
     ssh_key_type: ecdsa
     ssh_key_comment: besole@{{ inventory_hostname }}
@@ -39,12 +40,6 @@
     - name: Initialize dotfiles
       ansible.builtin.shell:
         cmd: "{{ user_creation.home }}/userbuild/git/dotfiles/init.sh"
-
-- name: Expire user password
-  become: true
-  ansible.builtin.user:
-    name: besole
-    expires: true
 
 - name: Copy ssh keys
   become: true
