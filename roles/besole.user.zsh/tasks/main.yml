@@ -55,4 +55,5 @@
   become: true
   ansible.builtin.copy:
     dest: /etc/sudoers.d/besole
-    content: besole ALL=(ALL) NOPASSWD:ALL
+    content: |
+      besole ALL=(ALL) NOPASSWD:ALL
