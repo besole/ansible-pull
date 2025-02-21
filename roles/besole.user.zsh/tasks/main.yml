@@ -53,6 +53,6 @@
     state: present
     user: besole
     key: |
-      {% for key in lookup('ansible.builtin.fileglob', 'ssh-keys/*', wantlist=true) %}
+      {% for key in lookup('ansible.builtin.fileglob', 'ssh-pubkeys/*', wantlist=true) %}
       {{ lookup('ansible.builtin.file', keyfile) }}
       {% endfor %}
