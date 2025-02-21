@@ -1,2 +1,1 @@
 - ansible.builtin.import_playbook: playbooks/user.yml
-  hosts: localhost
