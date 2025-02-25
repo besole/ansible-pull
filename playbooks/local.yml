@@ -1,5 +1,5 @@
 - name: Configure Host OS
-  hosts: localhost,all
+  hosts: all
 
   pre_tasks:
     - name: Stop running on localhost if specific hostname was found
