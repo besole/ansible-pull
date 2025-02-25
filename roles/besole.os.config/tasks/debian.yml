@@ -4,3 +4,10 @@
     name: "{{ base_packages.all + base_packages.debian }}"
     state: present
     update_cache: true
+
+- name: Install GUI Packages if enabled
+  become: true
+  community.general.pacman:
+    name: "{{ gui_packages.all + gui_packages.debian }}"
+    state: present
+  when: install_gui

@@ -1,6 +1,13 @@
-- name: Install Pacman Packages
+- name: Install Base Packages
   become: true
   community.general.pacman:
     name: "{{ base_packages.all + base_packages.archlinux }}"
     state: present
     update_cache: true
+
+- name: Install GUI Packages if enabled
+  become: true
+  community.general.pacman:
+    name: "{{ gui_packages.all + gui_packages.archlinux }}"
+    state: present
+  when: install_gui
