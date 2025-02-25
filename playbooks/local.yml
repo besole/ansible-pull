@@ -1,5 +1,5 @@
 - name: Configure Host OS
-  hosts: localhost
+  hosts: localhost,all
   roles:
     - besole.os.config
     - besole.user.zsh
