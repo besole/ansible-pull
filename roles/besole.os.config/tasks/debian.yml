@@ -1,0 +1,6 @@
+- name: Install base packages
+  become: true
+  ansible.builtin.apt:
+    name: "{{ base_packages.all + base_packages.debian }}"
+    state: present
+    update_cache: true

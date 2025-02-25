@@ -1,18 +1,3 @@
-- name: Generate locales
-  become: true
-  community.general.locale_gen:
-    name: en_US.UTF-8
-    state: present
-
-- name: Install base packages
-  become: true
-  ansible.builtin.apt:
-    name:
-      - zsh
-      - git
-    state: present
-    update_cache: true
-
 - name: Create main user
   register: user_creation
   become: true
@@ -25,20 +10,12 @@
     ssh_key_type: ecdsa
     ssh_key_comment: besole@{{ inventory_hostname }}
 
-- name: Set up dotfiles for besole
+- name: Allow sudo access
   become: true
-  become_user: besole
-  block:
-    - name: Clone dotfiles
-      ansible.builtin.git:
-        accept_newhostkey: true
-        dest: "{{ user_creation.home }}/userbuild/git/dotfiles"
-        force: true
-        repo: https://github.com/besole/dotfiles.git
-    
-    - name: Initialize dotfiles
-      ansible.builtin.shell:
-        cmd: "{{ user_creation.home }}/userbuild/git/dotfiles/init.sh"
+  ansible.builtin.copy:
+    dest: /etc/sudoers.d/besole
+    content: |
+      besole ALL=(ALL) NOPASSWD:ALL
 
 - name: Copy ssh keys
   become: true
@@ -51,9 +28,17 @@
       {{ lookup('ansible.builtin.file', keyfile) }}
       {% endfor %}
 
-- name: Allow sudo access
+- name: Clone dotfiles
   become: true
-  ansible.builtin.copy:
-    dest: /etc/sudoers.d/besole
-    content: |
-      besole ALL=(ALL) NOPASSWD:ALL
+  become_user: besole
+      ansible.builtin.git:
+        accept_newhostkey: true
+        dest: "{{ user_creation.home }}/userbuild/git/dotfiles"
+        force: true
+        repo: https://github.com/besole/dotfiles.git
+    
+- name: Initialize dotfiles
+  become: true
+  become_user: besole
+  ansible.builtin.shell:
+    cmd: "{{ user_creation.home }}/userbuild/git/dotfiles/init.sh"

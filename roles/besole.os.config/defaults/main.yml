@@ -1,0 +1,6 @@
+base_packages:
+  all:
+    - git
+    - zsh
+  archlinux: []
+  debian: []

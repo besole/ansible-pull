@@ -1,0 +1,11 @@
+- name: Generate locales
+  become: true
+  community.general.locale_gen:
+    name: en_US.UTF-8
+    state: present
+
+- when: ansible_os_family == 'Archlinux'
+  include_tasks: archlinux.yml
+
+- when: ansible_os_family == 'Debian'
+  include_tasks: debian.yml

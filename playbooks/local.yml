@@ -1,4 +1,5 @@
-- name: Set up user environment
+- name: Configure Host OS
   hosts: localhost
   roles:
+    - besole.os.config
     - besole.user.zsh
