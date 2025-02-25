@@ -31,11 +31,11 @@
 - name: Clone dotfiles
   become: true
   become_user: besole
-      ansible.builtin.git:
-        accept_newhostkey: true
-        dest: "{{ user_creation.home }}/userbuild/git/dotfiles"
-        force: true
-        repo: https://github.com/besole/dotfiles.git
+  ansible.builtin.git:
+    accept_newhostkey: true
+    dest: "{{ user_creation.home }}/userbuild/git/dotfiles"
+    force: true
+    repo: https://github.com/besole/dotfiles.git
     
 - name: Initialize dotfiles
   become: true
