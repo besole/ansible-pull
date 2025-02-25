@@ -13,26 +13,26 @@ base_packages:
   archlinux: []
   debian: []
 
-  gui_packages:
-    all: []
-    archlinux:
-      - base-devel
-      - i3-wm
-      - i3blocks
-      - i3lock
-      - xorg-server
-      - xorg-xinit
-      - xorg-xrandr
-      - kitty
-      - rofi
-      - firefox
-      - python-i3ipc
-      - pulseaudio
-      - pulseaudio-alsa
-      - pavucontrol
-      - dunst
-      - libnotify
-      - xf86-video-qxl
-      - xclip
-      - spice-vdagent
-    debian: []
+gui_packages:
+  all: []
+  archlinux:
+    - base-devel
+    - i3-wm
+    - i3blocks
+    - i3lock
+    - xorg-server
+    - xorg-xinit
+    - xorg-xrandr
+    - kitty
+    - rofi
+    - firefox
+    - python-i3ipc
+    - pulseaudio
+    - pulseaudio-alsa
+    - pavucontrol
+    - dunst
+    - libnotify
+    - xf86-video-qxl
+    - xclip
+    - spice-vdagent
+  debian: []
