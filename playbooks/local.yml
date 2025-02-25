@@ -6,7 +6,7 @@
       ansible.builtin.meta: end_host
       when:
         - inventory_hostname == "localhost"
-          ansible_play_hosts | length > 1
+        - ansible_play_hosts | length > 1
 
   roles:
     - besole.os.config
