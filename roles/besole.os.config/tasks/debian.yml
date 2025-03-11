@@ -7,7 +7,7 @@
 
 - name: Install GUI Packages if enabled
   become: true
-  community.general.apt:
+  ansible.builtin.apt:
     name: "{{ gui_packages.all + gui_packages.debian }}"
     state: present
   when: install_gui
