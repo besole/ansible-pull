@@ -5,13 +5,14 @@ base_packages:
     - git
     - less
     - man-db
-    - man-pages
     - qemu-guest-agent
     - unzip
     - vim
     - zsh
-  archlinux: []
-  debian: []
+  archlinux: 
+    - man-pages
+  debian:
+    - manpages
 
 gui_packages:
   all: []
