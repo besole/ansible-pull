@@ -13,7 +13,11 @@
 #        requirements_file: "{{ playbook_dir }}/../roles/requirements.yml"
 #        type: role
     - name: Install ansible galaxy collections
-      ansible.builtin.command: ansible-galaxy collection install -r collections/requirements.yml
+      ansible.builtin.command:
+        chdir: ..
+        cmd: ansible-galaxy collection install -r collections/requirements.yml
 
     - name: Install ansible galaxy roles
-      ansible.builtin.command: ansible-galaxy role install -r roles/requirements.yml
+      ansible.builtin.command: 
+        chdir: ..
+        cmd: ansible-galaxy role install -r roles/requirements.yml
