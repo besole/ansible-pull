@@ -1,9 +1,0 @@
-- name: Helper playbook to stop execution if necessary
-  hosts: all
-
-  tasks:
-    - name: Stop running on localhost if specific hostname was found
-      ansible.builtin.meta: end_host
-      when:
-        - inventory_hostname == "localhost"
-        - ansible_play_hosts | length > 1
