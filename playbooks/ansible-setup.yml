@@ -11,8 +11,10 @@
   tasks:
     - name: Install ansible galaxy collections
       ansible.builtin.command:
+        chdir: ..
         cmd: ansible-galaxy collection install -r collections/requirements.yml
 
     - name: Install ansible galaxy roles
       ansible.builtin.command: 
+        chdir: ..
         cmd: ansible-galaxy role install -r roles/requirements.yml
