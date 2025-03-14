@@ -1,5 +1,5 @@
 - name: Set up ansible requirements
-  hosts: all
+  hosts: localhost,all
 
   pre_tasks:
     - name: Stop running on localhost if specific hostname was found
