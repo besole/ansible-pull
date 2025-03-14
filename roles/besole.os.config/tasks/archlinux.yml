@@ -1,6 +1,13 @@
-- name: Install Arch Linux base OS
-  import_tasks: archlinux-base.yml
+- name: Install Base Packages
+  become: true
+  community.general.pacman:
+    name: "{{ base_packages.all + base_packages.archlinux }}"
+    state: present
+    update_cache: true
 
-- name: Install Arch Linux GUI
-  import_tasks: archlinux-gui.yml
+- name: Install GUI Packages if enabled
+  become: true
+  community.general.pacman:
+    name: "{{ gui_packages.all + gui_packages.archlinux }}"
+    state: present
   when: install_gui
