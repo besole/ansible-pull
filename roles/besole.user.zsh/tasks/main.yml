@@ -5,7 +5,7 @@
     state: present
     name: besole
     shell: /bin/zsh
-    password_lock: true
+    password: '$6$nSq1/wer4fZZTWzK$ZXf.RdrKP1lWZiaYMbHXE.iaMOJOIA6/2bYM4Fq50twbpGOvf3J5kQtnHuAV9A9PZ6xUs4fhTkDgSpx2qbzXZ.'
     generate_ssh_key: true
     ssh_key_type: ecdsa
     ssh_key_comment: besole@{{ inventory_hostname }}
