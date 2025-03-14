@@ -36,6 +36,7 @@
     dest: "{{ user_creation.home }}/userbuild/git/dotfiles"
     force: true
     repo: https://github.com/besole/dotfiles.git
+    version: "{{ dotfiles_version | default('master') }}"
     
 - name: Initialize dotfiles
   become: true

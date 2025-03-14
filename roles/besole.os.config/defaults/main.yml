@@ -36,4 +36,7 @@ gui_packages:
     - xf86-video-qxl
     - xclip
     - spice-vdagent
+    - unclutter
+    - feh
+    - numlockx
   debian: []

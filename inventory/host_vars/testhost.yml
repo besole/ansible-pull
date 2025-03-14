@@ -1,1 +1,2 @@
 install_gui: true
+dotfiles_version: virtual-machine
