@@ -1,0 +1,6 @@
+- name: Install Base Packages
+  become: true
+  community.general.pacman:
+    name: "{{ base_packages.all + base_packages.archlinux }}"
+    state: present
+    update_cache: true
