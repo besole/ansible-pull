@@ -43,3 +43,16 @@
   become_user: besole
   ansible.builtin.shell:
     cmd: "{{ user_creation.home }}/userbuild/git/dotfiles/init.sh"
+
+- name: Check user expiration
+  become: true
+  register: password_status
+  ansible.builtin.shell:
+    cmd: passwd --status besole | cut -d ' ' -f 3 | grep 1970-01-01
+  failed_when: false
+  changed_when: false
+
+- name: Expire besole
+  when: password_status.rc != 0
+  ansible.builtin.shell:
+    cmd: passwd --expire besole
